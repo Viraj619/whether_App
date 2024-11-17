@@ -1,9 +1,14 @@
  import 'package:flutter/material.dart';
-import 'package:weather_app/ui/detail_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/domen/api_helper.dart';
+import 'package:weather_app/ui/bloc/weather_bloc.dart';
 import 'package:weather_app/ui/home_page.dart';
 
 void main(){
-  runApp(MainApp());
+  runApp(
+      
+     BlocProvider (create: (context) => WeatherBloc(apiHelper: ApiHelper()),
+      child: MainApp()));
  }
 
  class MainApp extends StatelessWidget{
@@ -11,6 +16,6 @@ void main(){
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DetailPage(),);
+      home: HomePage(),);
   }
  }

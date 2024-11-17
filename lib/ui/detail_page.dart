@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_app/domen/coustom_page.dart';
-import 'package:weather_app/domen/ui_hepler.dart';
+import 'package:weather_app/domen/utils/ui_hepler.dart';
 
 class DetailPage extends StatelessWidget{
+  DateFormat mFormat=DateFormat.d();
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(length: 7, child:Scaffold(
@@ -11,7 +13,7 @@ class DetailPage extends StatelessWidget{
         leading: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Icon(Icons.arrow_back_ios_new_outlined),
+            IconButton(onPressed: (){Navigator.pop(context);},icon:Icon(Icons.arrow_back_ios_new_outlined)),
             Text("Daily Details",style: mTextStyle20(),)
           ],),
         actions: [IconButton(onPressed: (){}, icon: Icon(Icons.contactless_outlined))],
